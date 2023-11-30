@@ -63,9 +63,12 @@ let ParseTable = async (outputArray = [], baseURL) => {
     output['dc.title'] = eleTr.find('td:eq(1)').html()
     let date = eleTr.find('td:eq(2)').html()
     output['dc.title'] = StripHTML(output['dc.title'])
+  
 
     // 將日期儲存到dc.date
     output['dc.date'] = ResolveDate(date)
+
+    output['dc.creator'] = eleTr.find('td:eq(0)').html()
 
     // =================================================================
     // @TODO 5. 抓取下一層網頁
